@@ -1,7 +1,19 @@
 AWSTemplateFormatVersion: '2010-09-09'
+Parameters:
+    SNSTestEmail:
+        Type: String
+        Description: Enter email for SNS notification
 Resources:
-  S3Bucket:
-    Type: AWS::S3::Bucket
+    AlertSNSTopic:
+        Type: 'AWS::SNS::Topic'
+        Properties:
+            Subscription:
+                - 
+                    Endpoint:
+                        Ref: SNSTestEmail
+                    Protocol: email
+    S3Bucket:
+   	    Type: AWS::S3::Bucket
 Outputs:
   BucketName:
     Value: !Ref 'S3Bucket'
