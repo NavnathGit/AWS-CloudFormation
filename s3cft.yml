@@ -2,6 +2,7 @@ AWSTemplateFormatVersion: '2010-09-09'
 Parameters:
     SNSTestEmail:
         Type: String
+        Default: Test@gmail.com
         Description: Enter email for SNS notification
 Resources:
     AlertSNSTopic:
